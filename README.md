@@ -1,4 +1,4 @@
 keplr
 =====
 
-Straightforward astrological chart creation.
+Straight forward astrological chart creation.
