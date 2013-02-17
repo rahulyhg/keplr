@@ -33,6 +33,15 @@
       </script>
   
   <script>
+        function ConvertDDToDMS(D, lng){
+            return {
+                dir : D<0?lng?'W':'S':lng?'E':'N',
+                deg : 0|(D<0?D=-D:D),
+                min : 0|D%1*60,
+                sec :(0|D*60%1*6000)/100
+            };
+        }
+        
         function initialize() {
           var mapOptions = {
             center: new google.maps.LatLng(-33.8688, 151.2195),
@@ -43,7 +52,7 @@
             mapOptions);
 
             var autocompleteOptions = {
-              types: ['(cities)']
+              types: ['(regions)']
              };
 
              var input = document.getElementById('searchTextField');
@@ -53,7 +62,7 @@
           var marker = new google.maps.Marker({
             map: map
           });
-
+          
           google.maps.event.addListener(autocomplete, 'place_changed', function() {
             infowindow.close();
             marker.setVisible(false);
@@ -91,8 +100,10 @@
                 (place.address_components[2] && place.address_components[2].short_name || '')
               ].join(' ');
             }
-
-            infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
+            var lat = ConvertDDToDMS(place.geometry.location.lat(), false);
+            var lng = ConvertDDToDMS(place.geometry.location.lng(), true);
+            
+            infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address + '<br>LATITUDE:<br>' + lat.deg + lat.dir + '<br>LNG: ' + lng.deg + lng.dir);
             infowindow.open(map, marker);
           });
         }
