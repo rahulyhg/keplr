@@ -2,6 +2,7 @@
 
 ----
 
-Text: <h2>Testing the pooper.</h2>
-<input id="searchTextField" type="text" size="50" placeholder="Enter a location" autocomplete="off" class="">
+Text: <H2>Testing the pooper.</H2>
+<input id="searchTextField" type="text" size="50" placeholder="Enter a location" autocomplete="off" class=""> <div style="width:50px;height:15px;background-color:black;" id="map_control"></div>
 <div id="map_canvas"></div>
+<div id="lat_lng"></div>
