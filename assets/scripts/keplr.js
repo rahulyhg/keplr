@@ -13,7 +13,7 @@ function MyClass(){
 ***************************************************************
 http://helephant.com/2008/08/23/javascript-anonymous-functions/
 ***************************************************************  
-*/  
+ 
 
 $helephant.components = {
     init : function(object, serverProperties)
@@ -58,7 +58,7 @@ $helephant.components = {
     alert(myProperty);
 })();
 alert(typeof(myProperty)); // undefined
-
+*/ 
 /*
   http://ejohn.org/blog/ecmascript-5-objects-and-properties/#postcomment
 */
