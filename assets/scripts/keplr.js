@@ -91,8 +91,9 @@ function initializeMap() {
     zoom: 1,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
-  map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+  map = new google.maps.Map($('#map_canvas')[0], mapOptions);
 
+  
   var autocompleteOptions = {
     types: ['(regions)']
   };
@@ -117,7 +118,10 @@ function initializeMap() {
     }
     map.setCenter(place.geometry.location);
     if (!map.getZoom() || map.getZoom() == 1) {
-      map.setZoom(12);
+      map.setZoom(6);
+    }
+    else {
+      map.setZoom(8);
     }
     
     marker.setPosition(place.geometry.location);
